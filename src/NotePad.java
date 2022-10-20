@@ -365,7 +365,7 @@ public class NotePad extends JFrame implements ActionListener {
                     }
                 });
 
-            } else if (e.getActionCommand() == "复制") {
+            } else if (e.getActionCommand().equals("复制")) {
                 copy();
             } else if (e.getActionCommand() == "粘贴") {
                 paste();
