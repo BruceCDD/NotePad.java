@@ -396,7 +396,6 @@ public class NotePad extends JFrame implements ActionListener {
     //保存
     private void save() {
 
-
         if (filename != null) {
             try {
                 File file = new File(filename);
