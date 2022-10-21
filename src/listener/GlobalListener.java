@@ -1,5 +1,6 @@
 package listener;
 
+import component.Window;
 import handler.EditHandler;
 import handler.FileHandler;
 import handler.ViewHandler;
@@ -18,14 +19,15 @@ public class GlobalListener implements ActionListener {
     public GlobalListener(JFrame window, JTextArea textArea) {
         this.window = window;
         this.textArea = textArea;
-        this.window.addWindowListener(new WindowListener(this));
+//        this.window.addWindowListener(new WindowListener(this));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
             if (e.getActionCommand().equals("新建")) {
-                FileHandler.newFile();
+//                FileHandler.newFile();
+                Window.newWindow();
             } else if (e.getActionCommand().equals("打开")) {
                 fileName = FileHandler.openFile(window, textArea);
                 textContent = textArea.getText();

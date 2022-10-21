@@ -27,17 +27,19 @@ public class KeyListener extends KeyAdapter {
                 int result = JOptionPane.showConfirmDialog(null, "文件内容已改变，确认保存退出吗？", "警告", 1);
                 switch (result) {
                     case JOptionPane.NO_OPTION:
-                        System.exit(0);
+                        globalListener.window.dispose();
                         break;
                     case JOptionPane.YES_OPTION:
                         FileHandler.save(globalListener.window, globalListener.fileName, globalListener.textArea);
-                        System.exit(0);
+                        globalListener.window.dispose();
                         break;
                     case JOptionPane.CANCEL_OPTION:
                         break;
                     default:
                         break;
                 }
+            }else{
+                globalListener.window.dispose();
             }
         }
     }

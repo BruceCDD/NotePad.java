@@ -20,17 +20,13 @@ public class WindowListener extends WindowAdapter {
             int result = JOptionPane.showConfirmDialog(null, "文件内容已改变，确认保存退出吗？", "警告", JOptionPane.YES_NO_OPTION);
             switch (result) {
                 case JOptionPane.NO_OPTION:
-                    System.exit(0);
                     break;
                 case JOptionPane.YES_OPTION:
                     FileHandler.save(globalListener.window, globalListener.fileName, globalListener.textArea);
-                    System.exit(0);
                     break;
                 default:
                     break;
             }
-        } else {
-            System.exit(0);
         }
     }
 }

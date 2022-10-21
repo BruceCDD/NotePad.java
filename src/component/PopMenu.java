@@ -1,3 +1,5 @@
+package component;
+
 import listener.GlobalListener;
 import listener.MouseListener;
 
