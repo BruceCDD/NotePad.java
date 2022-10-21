@@ -5,11 +5,11 @@ import java.awt.*;
 import java.io.*;
 
 public class FileHandler {
-    public static void newFile(){
+    public static void newFile() {
     }
 
-    public static String openFile(JFrame window,JTextArea area) throws IOException {
-        String fileName=null;
+    public static String openFile(JFrame window, JTextArea area) throws IOException {
+        String fileName = null;
         FileDialog fileDialog = new FileDialog(window, "打开文件", FileDialog.LOAD);
         fileDialog.setFile("*.txt");
         fileDialog.setVisible(true);
@@ -34,7 +34,7 @@ public class FileHandler {
         return fileName;
     }
 
-    public static void save(JFrame window,String fileName,JTextArea area){
+    public static void save(JFrame window, String fileName, JTextArea area) {
         if (fileName != null) {
             try {
                 File file = new File(fileName);
@@ -51,11 +51,11 @@ public class FileHandler {
                 e.printStackTrace();
             }
         } else {
-            otherSave(window,area);
+            otherSave(window, area);
         }
     }
 
-    public static void otherSave(JFrame window,JTextArea area){
+    public static void otherSave(JFrame window, JTextArea area) {
         FileDialog fileDialog = new FileDialog(window, "另存为", FileDialog.SAVE);
         fileDialog.setFile("*.txt");
         fileDialog.setVisible(true);
@@ -76,7 +76,7 @@ public class FileHandler {
         }
     }
 
-    public static void quit(JFrame window,String fileName,JTextArea area,String textContent){
+    public static void quit(JFrame window, String fileName, JTextArea area, String textContent) {
         if (!area.getText().equals(textContent)) {
             int result = JOptionPane.showConfirmDialog(null, "文件内容已改变，确认保存退出吗？", "警告", 1);
             switch (result) {
@@ -84,7 +84,7 @@ public class FileHandler {
                     System.exit(0);
                     break;
                 case JOptionPane.YES_OPTION:
-                    save(window,fileName,area);
+                    save(window, fileName, area);
                     System.exit(0);
                     break;
                 case JOptionPane.CANCEL_OPTION:

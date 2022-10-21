@@ -30,9 +30,9 @@ public class TextAreaDocumentListener implements DocumentListener {
         doUpdate();
     }
 
-    private void doUpdate(){
+    private void doUpdate() {
         JMenuBar jMenuBar = globalListener.window.getJMenuBar();
-        if(jMenuBar instanceof MenuBar){
+        if (jMenuBar instanceof MenuBar) {
             MenuBar menuBar = (MenuBar) jMenuBar;
             int length = StringUtils.wordCount(globalListener.textArea.getText());
             menuBar.updateWordCount(length);

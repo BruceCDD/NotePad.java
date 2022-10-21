@@ -15,9 +15,9 @@ public class MouseListener extends MouseAdapter {
 
     @Override
     public void mousePressed(MouseEvent e) {
-        int mods = e.getModifiers();
+        int mods = e.getModifiersEx();
         // 鼠标右键
-        if ((mods & InputEvent.BUTTON3_MASK) != 0) {
+        if ((mods & InputEvent.BUTTON3_DOWN_MASK) != 0) {
             // 弹出菜单
             popupMenu.show(e.getComponent(), e.getX(), e.getY());
         }

@@ -3,7 +3,7 @@ package component;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
-public class MenuBar extends JMenuBar{
+public class MenuBar extends JMenuBar {
 
     private final String[] FILE_ITEM = {"新建", "打开", "保存", "另存为", "退出"};
     private final String[] EDIT_ITEM = {"编辑", "复制", "剪切", "粘贴", "删除", "清空"};
@@ -45,13 +45,13 @@ public class MenuBar extends JMenuBar{
         return view;
     }
 
-    private JLabel wordCountInit(){
+    private JLabel wordCountInit() {
         JLabel wordCount = new JLabel(wordCountPrefix + "0");
         this.wordCount = wordCount;
         return wordCount;
     }
 
-    public void updateWordCount(int num){
+    public void updateWordCount(int num) {
         wordCount.setText(wordCountPrefix + num);
     }
 

@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class EditHandler {
 
-    public static void copy(JTextArea textArea){
+    public static void copy(JTextArea textArea) {
         if (textArea.getSelectedText() == null) {
             JOptionPane.showMessageDialog(null, "你没有选中任何文字！", "记事本", JOptionPane.WARNING_MESSAGE);
         }

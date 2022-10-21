@@ -7,7 +7,8 @@ import java.awt.event.*;
 public class ViewHandler {
     static int start = 0;// 查找开始位置
     static int end = 0;// 查找结束位置
-    public static void searchAndReplace(JFrame window, JTextArea textArea){
+
+    public static void searchAndReplace(JFrame window, JTextArea textArea) {
         // 查找对话框
         JDialog search = new JDialog(window, "查找和替换");
         search.setSize(200, 100);
@@ -27,6 +28,8 @@ public class ViewHandler {
         panel.add(buttonChange);
         search.add(panel);
         search.setVisible(true);
+        end = textArea.getCaretPosition();
+        buttonChange.setEnabled(false);
 
 
         // 为查找下一个 按钮绑定监听事件
@@ -34,18 +37,20 @@ public class ViewHandler {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
                 String findText = textField_1.getText();// 查找的字符串
-
+                if (findText == null || findText.equals("")) return;
                 String text = textArea.getText();// 当前文本框的内容
                 start = text.indexOf(findText, end);
                 end = start + findText.length();
                 // 没有找到
                 if (start == -1) {
                     JOptionPane.showMessageDialog(null, "“" + findText + "”" + "已经查找完毕", "记事本", JOptionPane.WARNING_MESSAGE);
+                    buttonChange.setEnabled(false);
+                    end = 0;
                     textArea.select(start, end);
                 } else {
                     textArea.select(start, end);
+                    buttonChange.setEnabled(true);
                 }
 
             }
@@ -57,9 +62,9 @@ public class ViewHandler {
             public void actionPerformed(ActionEvent e) {
                 // TODO Auto-generated method stub
                 String changeText = textField_2.getText();// 替换的字符串
-                textArea.select(start, end);
                 textArea.replaceSelection(changeText);
-                textArea.select(start, end);
+                end = start;
+                buttonFind.doClick();
             }
         });
     }

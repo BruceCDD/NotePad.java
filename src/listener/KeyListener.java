@@ -38,7 +38,7 @@ public class KeyListener extends KeyAdapter {
                     default:
                         break;
                 }
-            }else{
+            } else {
                 globalListener.window.dispose();
             }
         }
