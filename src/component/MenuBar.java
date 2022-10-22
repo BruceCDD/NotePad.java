@@ -7,7 +7,7 @@ public class MenuBar extends JMenuBar {
 
     private final String[] FILE_ITEM = {"新建", "打开", "保存", "另存为", "退出"};
     private final String[] EDIT_ITEM = {"编辑", "复制", "剪切", "粘贴", "删除", "清空"};
-    private final String[] VIEW_ITEM = {"查找和替换"};
+    private final String[] VIEW_ITEM = {"查找和替换", "自动换行", "字体大小"};
     private static final String wordCountPrefix = "   字数统计：";
 
 

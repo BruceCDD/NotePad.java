@@ -31,25 +31,29 @@ public class GlobalListener implements ActionListener {
             } else if (e.getActionCommand().equals("打开")) {
                 fileName = FileHandler.openFile(window, textArea);
                 textContent = textArea.getText();
-            } else if (e.getActionCommand() == "保存") {
+            } else if (e.getActionCommand().equals("保存")) {
                 FileHandler.save(window, fileName, textArea);
                 textContent = textArea.getText();
-            } else if (e.getActionCommand() == "另存为") {
+            } else if (e.getActionCommand().equals("另存为")) {
                 FileHandler.otherSave(window, textArea);
-            } else if (e.getActionCommand() == "退出") {
+            } else if (e.getActionCommand().equals("退出")) {
                 FileHandler.quit(window, fileName, textArea, textContent);
-            } else if (e.getActionCommand() == "查找和替换") {
-                ViewHandler.searchAndReplace(window, textArea);
             } else if (e.getActionCommand().equals("复制")) {
                 EditHandler.copy(textArea);
-            } else if (e.getActionCommand() == "粘贴") {
+            } else if (e.getActionCommand().equals("粘贴")) {
                 EditHandler.paste(textArea);
-            } else if (e.getActionCommand() == "剪切") {
+            } else if (e.getActionCommand().equals("剪切")) {
                 EditHandler.cut(textArea);
-            } else if (e.getActionCommand() == "删除") {
+            } else if (e.getActionCommand().equals("删除")) {
                 EditHandler.delete(textArea);
-            } else if (e.getActionCommand() == "清空") {
+            } else if (e.getActionCommand().equals("清空")) {
                 EditHandler.clear(textArea);
+            } else if (e.getActionCommand().equals("查找和替换")) {
+                ViewHandler.searchAndReplace(window, textArea);
+            } else if (e.getActionCommand().startsWith("自动换行")) {
+                ViewHandler.lineWrap(window, textArea);
+            } else if (e.getActionCommand().equals("字体大小")) {
+                ViewHandler.setFont(window, textArea);
             }
 
         } catch (Exception ex) {
