@@ -4,7 +4,6 @@ import component.HelpPage;
 import component.Window;
 import handler.EditHandler;
 import handler.FileHandler;
-import handler.FormatHandler;
 import handler.ViewHandler;
 
 import javax.swing.*;
@@ -55,8 +54,6 @@ public class GlobalListener implements ActionListener {
                 EditHandler.delete(textArea);
             } else if (Objects.equals(e.getActionCommand(), "清空")) {
                 EditHandler.clear(textArea);
-            } else if (Objects.equals(e.getActionCommand(), "自动换行")) {
-                FormatHandler.changeLineWrap(textArea);
             } else if (Objects.equals(e.getActionCommand(), "查看帮助")) {
                 new HelpPage();
             }
