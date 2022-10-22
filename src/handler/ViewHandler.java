@@ -122,4 +122,16 @@ public class ViewHandler {
             }
         });
     }
+
+    public static void changeAppearance(JTextArea textArea){
+        if(textArea.getBackground() == Color.BLACK){
+            textArea.setBackground(Color.WHITE);
+            textArea.setForeground(Color.BLACK);
+            textArea.setCaretColor(Color.BLACK);
+        }else{
+            textArea.setBackground(Color.BLACK);
+            textArea.setForeground(Color.WHITE);
+            textArea.setCaretColor(Color.WHITE);
+        }
+    }
 }
