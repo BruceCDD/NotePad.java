@@ -1,12 +1,15 @@
 package listener;
 
+import component.HelpPage;
 import component.Window;
 import handler.EditHandler;
 import handler.FileHandler;
+import handler.FormatHandler;
 import handler.ViewHandler;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 public class GlobalListener implements ActionListener {
 
@@ -28,28 +31,34 @@ public class GlobalListener implements ActionListener {
             if (e.getActionCommand().equals("新建")) {
 //                FileHandler.newFile();
                 Window.newWindow();
-            } else if (e.getActionCommand().equals("打开")) {
+            } else if (Objects.equals(e.getActionCommand(), "打开")) {
                 fileName = FileHandler.openFile(window, textArea);
                 textContent = textArea.getText();
-            } else if (e.getActionCommand() == "保存") {
+            } else if (Objects.equals(e.getActionCommand(), "保存")) {
                 FileHandler.save(window, fileName, textArea);
                 textContent = textArea.getText();
-            } else if (e.getActionCommand() == "另存为") {
+            } else if (Objects.equals(e.getActionCommand(), "另存为")) {
                 FileHandler.otherSave(window, textArea);
-            } else if (e.getActionCommand() == "退出") {
+            } else if (Objects.equals(e.getActionCommand(), "退出")) {
                 FileHandler.quit(window, fileName, textArea, textContent);
-            } else if (e.getActionCommand() == "查找和替换") {
+            } else if (Objects.equals(e.getActionCommand(), "查找和替换")) {
                 ViewHandler.searchAndReplace(window, textArea);
-            } else if (e.getActionCommand().equals("复制")) {
+            } else if (Objects.equals(e.getActionCommand(), "暗黑模式")) {
+                ViewHandler.changeAppearance(textArea);
+            } else if (Objects.equals(e.getActionCommand(), "复制")) {
                 EditHandler.copy(textArea);
-            } else if (e.getActionCommand() == "粘贴") {
+            } else if (Objects.equals(e.getActionCommand(), "粘贴")) {
                 EditHandler.paste(textArea);
-            } else if (e.getActionCommand() == "剪切") {
+            } else if (Objects.equals(e.getActionCommand(), "剪切")) {
                 EditHandler.cut(textArea);
-            } else if (e.getActionCommand() == "删除") {
+            } else if (Objects.equals(e.getActionCommand(), "删除")) {
                 EditHandler.delete(textArea);
-            } else if (e.getActionCommand() == "清空") {
+            } else if (Objects.equals(e.getActionCommand(), "清空")) {
                 EditHandler.clear(textArea);
+            } else if (Objects.equals(e.getActionCommand(), "自动换行")) {
+                FormatHandler.changeLineWrap(textArea);
+            } else if (Objects.equals(e.getActionCommand(), "查看帮助")) {
+                new HelpPage();
             }
 
         } catch (Exception ex) {

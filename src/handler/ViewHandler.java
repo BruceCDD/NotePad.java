@@ -68,4 +68,14 @@ public class ViewHandler {
             }
         });
     }
+
+    public static void changeAppearance(JTextArea textArea){
+        if(textArea.getBackground() == Color.BLACK){
+            textArea.setBackground(Color.WHITE);
+            textArea.setForeground(Color.BLACK);
+        }else{
+            textArea.setBackground(Color.BLACK);
+            textArea.setForeground(Color.WHITE);
+        }
+    }
 }

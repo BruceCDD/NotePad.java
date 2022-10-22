@@ -6,8 +6,11 @@ import java.awt.event.ActionListener;
 public class MenuBar extends JMenuBar {
 
     private final String[] FILE_ITEM = {"新建", "打开", "保存", "另存为", "退出"};
-    private final String[] EDIT_ITEM = {"编辑", "复制", "剪切", "粘贴", "删除", "清空"};
+    private final String[] EDIT_ITEM = {"复制", "剪切", "粘贴", "删除", "清空"};
     private final String[] VIEW_ITEM = {"查找和替换"};
+    private final String[] RADIO_VIEW_ITEM = {"暗黑模式"};
+    private final String[] RADIO_FORMAT_ITEM = {"自动换行"};
+    private final String[] HELP_ITEM = {"查看帮助"};
     private static final String wordCountPrefix = "   字数统计：";
 
 
@@ -23,6 +26,8 @@ public class MenuBar extends JMenuBar {
         this.add(fileInit());
         this.add(editInit());
         this.add(viewInit());
+        this.add(formatInit());
+        this.add(helpInit());
         this.add(wordCountInit());
         window.setJMenuBar(this);
     }
@@ -42,6 +47,19 @@ public class MenuBar extends JMenuBar {
     private JMenu viewInit() {
         JMenu view = new JMenu("查看");
         itemBind(view, VIEW_ITEM);
+        radioItemBind(view, RADIO_VIEW_ITEM);
+        return view;
+    }
+
+    private JMenu formatInit() {
+        JMenu view = new JMenu("格式");
+        radioItemBind(view, RADIO_FORMAT_ITEM);
+        return view;
+    }
+
+    private JMenu helpInit() {
+        JMenu view = new JMenu("帮助");
+        itemBind(view, HELP_ITEM);
         return view;
     }
 
@@ -58,6 +76,14 @@ public class MenuBar extends JMenuBar {
     private void itemBind(JMenu jMenu, String[] items) {
         for (String item : items) {
             JMenuItem jMenuItem = new JMenuItem(item);
+            jMenuItem.addActionListener(actionListener);
+            jMenu.add(jMenuItem);
+        }
+    }
+
+    private void radioItemBind(JMenu jMenu, String[] items){
+        for (String item : items) {
+            JRadioButtonMenuItem jMenuItem = new JRadioButtonMenuItem(item);
             jMenuItem.addActionListener(actionListener);
             jMenu.add(jMenuItem);
         }
