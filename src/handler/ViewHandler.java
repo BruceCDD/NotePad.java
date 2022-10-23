@@ -68,16 +68,7 @@ public class ViewHandler {
         });
     }
 
-    public static void lineWrap(JFrame window, JTextArea textArea) {
-//        JMenuItem item = window.getJMenuBar().getMenu(2).getItem(1);
-//        if (item.getText().endsWith("√")) {
-//            item.setText("自动换行");
-//            textArea.setLineWrap(false);
-//        } else {
-//            item.setText("自动换行 √");
-//            textArea.setLineWrap(true);
-//        }
-
+    public static void lineWrap(JTextArea textArea) {
         textArea.setLineWrap(!textArea.getLineWrap());
     }
 
