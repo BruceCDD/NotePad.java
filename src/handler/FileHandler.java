@@ -20,13 +20,13 @@ public class FileHandler {
 
             FileReader file_reader = new FileReader(fileName);// 此处必须要捕获异常
             BufferedReader br = new BufferedReader(file_reader);
-            String temp = "";
+            StringBuilder stringBuilder = new StringBuilder();
             while (br.ready())// 判断缓冲区是否为空，非空时返回true
             {
                 int c = br.read();
-                temp = temp + (char) c;
+                stringBuilder.append((char) c);
             }
-            area.setText(temp);
+            area.setText(stringBuilder.toString());
             br.close();
             file_reader.close();
             window.setTitle("记事本-" + fileName);
@@ -78,14 +78,14 @@ public class FileHandler {
 
     public static void quit(JFrame window, String fileName, JTextArea area, String textContent) {
         if (!area.getText().equals(textContent)) {
-            int result = JOptionPane.showConfirmDialog(null, "文件内容已改变，确认保存退出吗？", "警告", 1);
+            int result = JOptionPane.showConfirmDialog(null, "文件内容已改变，确认保存退出吗？", "警告", JOptionPane.YES_NO_CANCEL_OPTION);
             switch (result) {
                 case JOptionPane.NO_OPTION:
-                    System.exit(0);
+                    window.dispose();
                     break;
                 case JOptionPane.YES_OPTION:
                     save(window, fileName, area);
-                    System.exit(0);
+                    window.dispose();
                     break;
                 case JOptionPane.CANCEL_OPTION:
                     break;
@@ -93,7 +93,7 @@ public class FileHandler {
                     break;
             }
         } else {
-            System.exit(0);
+            window.dispose();
         }
     }
 }
