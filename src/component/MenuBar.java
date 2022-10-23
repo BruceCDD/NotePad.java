@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 public class MenuBar extends JMenuBar {
 
     private final String[] FILE_ITEM = {"新建", "打开", "保存", "另存为", "退出"};
-    private final String[] EDIT_ITEM = {"编辑", "复制", "剪切", "粘贴", "删除", "清空"};
+    private final String[] EDIT_ITEM = {"复制", "剪切", "粘贴", "删除", "清空"};
     private final String[] VIEW_ITEM = {"查找和替换", "字体大小"};
     private final String[] RADIO_VIEW_ITEM = {"自动换行", "暗黑模式"};
     private final String[] HELP_ITEM = {"查看帮助"};

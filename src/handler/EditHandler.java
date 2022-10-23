@@ -51,7 +51,6 @@ public class EditHandler {
     public static void clear(JTextArea textArea) {
         int result = JOptionPane.showConfirmDialog(null, "确认清空所有文字吗？", "警告", 1);
         if (result == JOptionPane.OK_OPTION) {
-//						myarea.replaceRange(null,0,textContent.length());
             textArea.setText(null);
         }
     }

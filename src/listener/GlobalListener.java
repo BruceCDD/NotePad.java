@@ -21,7 +21,6 @@ public class GlobalListener implements ActionListener {
     public GlobalListener(JFrame window, JTextArea textArea) {
         this.window = window;
         this.textArea = textArea;
-//        this.window.addWindowListener(new WindowListener(this));
     }
 
     @Override
@@ -53,7 +52,7 @@ public class GlobalListener implements ActionListener {
             } else if (Objects.equals(e.getActionCommand(), "查找和替换")) {
                 ViewHandler.searchAndReplace(window, textArea);
             } else if (Objects.equals(e.getActionCommand(), "自动换行")) {
-                ViewHandler.lineWrap(window, textArea);
+                ViewHandler.lineWrap(textArea);
             } else if (Objects.equals(e.getActionCommand(), "字体大小")) {
                 ViewHandler.setFont(window, textArea);
             } else if (Objects.equals(e.getActionCommand(), "暗黑模式")) {
