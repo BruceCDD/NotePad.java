@@ -100,7 +100,6 @@ public class ViewHandler {
                         JOptionPane.showMessageDialog(null, "请输入正确的字体大小(1~30)", "提示", JOptionPane.WARNING_MESSAGE);
                     } else {
                         textArea.setFont(new Font("Serif", Font.PLAIN, size + 10));
-                        fontSet.dispose();
                     }
                 } catch (NumberFormatException numberFormatException) {
                     JOptionPane.showMessageDialog(null, "请输入正确的字体大小(1~30)", "提示", JOptionPane.WARNING_MESSAGE);
